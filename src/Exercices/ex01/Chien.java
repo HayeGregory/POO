@@ -2,9 +2,9 @@ package Exercices.ex01;
 
 public class Chien {
     // Attributes
-    String nom;
-    String dateNaissance;
-    Personne Propietaire;
+    private String nom;
+    private String dateNaissance;
+    private Personne Propietaire;
 
     // Constructor
     public Chien (String nom, String dateNaissance, Personne proprietaire) {
@@ -12,6 +12,26 @@ public class Chien {
         this.dateNaissance = dateNaissance;
         this.Propietaire = proprietaire;
 
+    }
+
+    // Setters - Getters
+    public String getNom() {
+        return nom;
+    }
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
+    public void setDateNaissance(String dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+    public Personne getPropietaire() {
+        return Propietaire;
+    }
+    public void setPropietaire(Personne propietaire) {
+        Propietaire = propietaire;
     }
 
     // Methods
