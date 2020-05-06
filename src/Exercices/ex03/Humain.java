@@ -13,7 +13,8 @@ public class Humain {
         System.out.println("Bonjour je suis " + nom);
     }
     public void saluer(String message) {
-        System.out.println("bonjour je suis " + nom + ", mon message est '" + message + "'");
+        saluer();
+        System.out.println("Mon message est '" + message + "'");
     }
     public void saluer(int repetition) {
         for (int i = 0; i < repetition; i++) {
