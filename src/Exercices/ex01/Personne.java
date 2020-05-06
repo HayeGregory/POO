@@ -28,7 +28,7 @@ public class Personne {
 
     // Methods
     public void caresser(Chien animal) {
-        System.out.println(nom + " caresse " + animal.nom);
+        System.out.println(nom + " caresse " + animal.getNom());
 
     }
 
