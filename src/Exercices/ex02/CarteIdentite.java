@@ -3,15 +3,18 @@ package Exercices.ex02;
 public class CarteIdentite {
     private String nom;
     private String adresse;
-    private String dateNaissance;
+    private final String dateNaissance;
     private Chien chien;
 
     // Constructors
-    public CarteIdentite(String nom, String adresse, String dateNaissance, Chien chien) {
+    public CarteIdentite(String nom, String adresse, String dateNaissance) {
         setNom(nom);
         setAdresse(adresse);
-        setDateNaissance(dateNaissance);
-        setChien(chien);
+
+        if (dateNaissance.isEmpty())
+            this.dateNaissance = "default date";
+        else
+            this.dateNaissance = dateNaissance;
     }
 
     // Getters -- Setters
@@ -30,13 +33,11 @@ public class CarteIdentite {
     public String getDateNaissance() {
         return dateNaissance;
     }
-    private void setDateNaissance(String dateNaissance) {
-        if (!dateNaissance.isEmpty()) this.dateNaissance = dateNaissance;
-    }
     public Chien getChien() {
         return chien;
     }
     public void setChien(Chien chien) {
-        this.chien = chien;
+        //if (chien.getNom().length() < 8 && !chien.getRace().equals("shiba"))
+            this.chien = chien;
     }
 }
