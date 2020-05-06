@@ -1,6 +1,7 @@
 package Exercices.ex01;
 
 public class Chien {
+    // Attributes
     String nom;
     String dateNaissance;
     Personne Propietaire;

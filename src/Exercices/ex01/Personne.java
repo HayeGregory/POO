@@ -1,6 +1,7 @@
 package Exercices.ex01;
 
 public class Personne {
+    // Attributes
     String nom;
     String dateNaissance;
 
@@ -11,10 +12,12 @@ public class Personne {
 
     }
 
+    // Methods
     public void caresser(Chien animal) {
         System.out.println(nom + " caresse " + animal.nom);
 
     }
+
     public void saluer() {
         System.out.println("Salut je m'appelle " + nom);
 
