@@ -29,8 +29,7 @@ public class Humain {
     }
     public void saluer(String message, int repetition) {
         for (int i = 0; i < repetition; i++) {
-            saluer();
-            System.out.println("Mon message est '" + message + "'");
+            saluer(message);
         }
     }
 }
