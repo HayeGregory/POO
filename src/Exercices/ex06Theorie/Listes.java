@@ -1,6 +1,5 @@
-package Exercices.ex06;
+package Exercices.ex06Theorie;
 
-import Exercices.ex01.Chien;
 import Exercices.ex01.Personne;
 
 import java.util.ArrayList;

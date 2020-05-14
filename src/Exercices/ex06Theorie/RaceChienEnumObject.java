@@ -1,4 +1,4 @@
-package Exercices.ex06;
+package Exercices.ex06Theorie;
 
 public enum RaceChienEnumObject {
     LABRADOR (100) ,
