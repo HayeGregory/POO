@@ -3,6 +3,9 @@ package Exercices.ex02;
 public class Main {
     public static void main(String[] args) {
         Chien idefix = new Chien("Idefix", "macin");
+
+        System.out.println(idefix.getNom() + "-" + idefix.getRace());
+
         CarteIdentite greg = new CarteIdentite(
                 "Gregory haye",
                 "rue de bomel 10/3 5000 Namur",
