@@ -23,6 +23,6 @@ public class Voiture extends Vehicule implements Roulant {
 
     @Override
     public void rouler() {
-        System.out.println("le code pour decrire comment le vehicule roule");
+        System.out.println("La voiture roule");
     }
 }

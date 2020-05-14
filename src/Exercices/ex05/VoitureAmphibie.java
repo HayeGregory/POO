@@ -5,14 +5,14 @@ public class VoitureAmphibie extends Voiture implements Navigant{
 
     public VoitureAmphibie(float poids, String modele, String couleur) {
         super(poids, modele);
-        this.couleur = couleur;
+        this.setCouleur(couleur);
     }
 
-    public String getSouleur() {
+    public String getCouleur() {
         return couleur;
     }
 
-    public void setSouleur(String couleur) {
+    public void setCouleur(String couleur) {
         this.couleur = couleur;
     }
 
@@ -23,8 +23,11 @@ public class VoitureAmphibie extends Voiture implements Navigant{
 
     @Override
     public void naviguer() {
-        System.out.println("le code pour decrire comment le vehicule amphibie  navigue");
+        System.out.println("Le vehicule amphibie  navigue");
     }
 
-
+    @Override
+    public void rouler() {
+        System.out.println("Le vehicule amphibie roule");
+    }
 }

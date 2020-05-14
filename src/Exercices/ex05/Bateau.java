@@ -24,6 +24,6 @@ public class Bateau  extends Vehicule implements Navigant{
 
     @Override
     public void naviguer() {
-        System.out.println("le code pour decrire comment le bateau navigue");
+        System.out.println("le bateau navigue");
     }
 }
