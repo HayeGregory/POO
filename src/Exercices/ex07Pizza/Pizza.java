@@ -8,12 +8,10 @@ public class Pizza {
     private List<Ingredient> ingredients;
     private boolean cuite;
 
-    public Pizza(String nom, Ingredient ingredient) {
+    public Pizza(String nom) {
         this.nom = nom;
         this.ingredients = new ArrayList<>();
-        for (int i = 0; i < ingredient.getQqt(); i++) {
-            ingredients.add(ingredient);
-        }
+
     }
 
     public String getNom() {
@@ -41,12 +39,12 @@ public class Pizza {
     }
 
     public boolean cuire() {
-        if (ingredients.size() <= 10 && ingredients.size() > 0) {
-            System.out.println("cuite reussie");
-        } else {
-            System.out.println("cuisson ratée");
+        int qqtIngredient = 0;
+
+        for (Ingredient ingredient : ingredients) {
+            qqtIngredient += ingredient.getQqt();
         }
 
-        return ingredients.size() <= 10 && ingredients.size() >= 3;
+        return qqtIngredient <= 10 && qqtIngredient >= 3;
     }
 }
