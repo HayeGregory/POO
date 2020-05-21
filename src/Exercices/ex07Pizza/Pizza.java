@@ -11,7 +11,7 @@ public class Pizza {
     public Pizza(String nom) {
         this.nom = nom;
         this.ingredients = new ArrayList<>();
-
+        this.cuite = false;
     }
 
     public String getNom() {
@@ -45,6 +45,13 @@ public class Pizza {
             qqtIngredient += ingredient.getQqt();
         }
 
-        return qqtIngredient <= 10 && qqtIngredient >= 3;
+        if ( qqtIngredient > 10 || qqtIngredient < 3) {
+            System.out.println("Cuisson échouée :  ");
+            System.out.println(qqtIngredient < 3 ? "Ingrédients insuffisant" : "Trop d'ingrédients");
+            return false;
+        }
+        System.out.println("Cuisson réalisée !!");
+        this.cuite =  true;
+        return true;
     }
 }

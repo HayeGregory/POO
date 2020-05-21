@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Ingredient champignon = new Ingredient("Champignon", 1);
-        Ingredient lardon = new Ingredient("lardon", 2);
+        Ingredient lardon = new Ingredient("lardon", 22);
 
         List<Ingredient> compoPizzaChampignon = new ArrayList<>();
         compoPizzaChampignon.add(champignon);
@@ -16,12 +16,7 @@ public class Main {
 
         pizzaChampi.setIngredients(compoPizzaChampignon);
 
-
-        if ( pizzaChampi.cuire()) {
-            System.out.println("bien cuite");
-        } else {
-            System.out.println("cuisson ratée");
-        }
+        pizzaChampi.cuire();
 
     }
 }
