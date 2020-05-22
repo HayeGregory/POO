@@ -14,7 +14,9 @@ public class Ingredient {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        if (nom.length() > 0) {
+            this.nom = nom;
+        }
     }
 
     public int getQqt() {
@@ -22,6 +24,17 @@ public class Ingredient {
     }
 
     public void setQqt(int qqt) {
-        this.qqt = qqt;
+        if(qqt >= 0) {
+            this.qqt = qqt;
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("- ").append(getNom()).append(" qqt : ").append(getQqt()).append("\n");
+
+        return sb.toString();
     }
 }

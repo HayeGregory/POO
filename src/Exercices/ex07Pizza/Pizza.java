@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
+    static Ingredient ingredientBase = new Ingredient("Pâte",1);
     private String nom;
     private List<Ingredient> ingredients;
     private boolean cuite;
@@ -11,6 +12,7 @@ public class Pizza {
     public Pizza(String nom) {
         this.nom = nom;
         this.ingredients = new ArrayList<>();
+        ajouterIngredient(ingredientBase);
         this.cuite = false;
     }
 
@@ -22,11 +24,11 @@ public class Pizza {
         this.nom = nom;
     }
 
-    public List<Ingredient> getIngredients() {
+    private List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    private void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -36,6 +38,19 @@ public class Pizza {
 
     public void setCuite(boolean cuite) {
         this.cuite = cuite;
+    }
+
+    public void ajouterIngredients (List<Ingredient> ingredients) {
+        for (Ingredient ingredient : ingredients) {
+            ajouterIngredient(ingredient);
+        }
+    }
+    public void ajouterIngredient(Ingredient ingredient) {
+        if (ingredient.getQqt() < 1 || ingredient.getQqt() > 8) {
+            System.out.println(ingredient.getNom() + " pas ajouté , quantite requise entre 1 et 8");
+        } else {
+            this.getIngredients().add(ingredient);
+        }
     }
 
     public boolean cuire() {
@@ -53,5 +68,18 @@ public class Pizza {
         System.out.println("Cuisson réalisée !!");
         this.cuite =  true;
         return true;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("nom : ").append(this.nom).append("\n");
+        sb.append("Ingredients : ").append("\n");
+        for (Ingredient ingredient : ingredients) {
+            sb.append(ingredient);
+        }
+        return sb.toString();
     }
 }

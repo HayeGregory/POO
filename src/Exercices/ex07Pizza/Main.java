@@ -6,7 +6,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         Ingredient champignon = new Ingredient("Champignon", 1);
-        Ingredient lardon = new Ingredient("lardon", 22);
+        Ingredient lardon = new Ingredient("lardon", 0);
 
         List<Ingredient> compoPizzaChampignon = new ArrayList<>();
         compoPizzaChampignon.add(champignon);
@@ -14,9 +14,12 @@ public class Main {
 
         Pizza pizzaChampi = new Pizza("Pizza Champignons" );
 
-        pizzaChampi.setIngredients(compoPizzaChampignon);
+        pizzaChampi.ajouterIngredients(compoPizzaChampignon);
 
+        System.out.println(pizzaChampi);
+        System.out.println("----");
         pizzaChampi.cuire();
+
 
     }
 }
