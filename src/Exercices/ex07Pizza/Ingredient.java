@@ -1,12 +1,12 @@
 package Exercices.ex07Pizza;
 
 public class Ingredient {
-    private String nom;
+    private String nom = "nom par defaut";
     private int qqt;
 
     public Ingredient(String nom, int qqt) {
-        this.nom = nom;
-        this.qqt = qqt;
+        setNom(nom);
+        setQqt(qqt);
     }
 
     public String getNom() {
@@ -14,7 +14,7 @@ public class Ingredient {
     }
 
     public void setNom(String nom) {
-        if (nom.length() > 0) {
+        if (!nom.isBlank()) {
             this.nom = nom;
         }
     }

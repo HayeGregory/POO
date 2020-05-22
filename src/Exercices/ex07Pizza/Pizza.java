@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pizza {
-    static Ingredient ingredientBase = new Ingredient("Pâte",1);
+    public static Ingredient ingredientBase = new Ingredient("Pâte",1);
     private String nom;
     private List<Ingredient> ingredients;
     private boolean cuite;
@@ -14,6 +14,17 @@ public class Pizza {
         this.ingredients = new ArrayList<>();
         ajouterIngredient(ingredientBase);
         this.cuite = false;
+    }
+
+    public Pizza(String nom, List<Ingredient> ingredients) {
+        this.nom = nom;
+
+        ajouterIngredient(ingredientBase);
+        for (Ingredient ingredient : ingredients) {
+            ajouterIngredient(ingredient);
+        }
+
+
     }
 
     public String getNom() {
@@ -40,17 +51,20 @@ public class Pizza {
         this.cuite = cuite;
     }
 
-    public void ajouterIngredients (List<Ingredient> ingredients) {
+    public boolean ajouterIngredients (List<Ingredient> ingredients) {
         for (Ingredient ingredient : ingredients) {
             ajouterIngredient(ingredient);
         }
+        return true;
     }
-    public void ajouterIngredient(Ingredient ingredient) {
+    public boolean ajouterIngredient(Ingredient ingredient) {
         if (ingredient.getQqt() < 1 || ingredient.getQqt() > 8) {
             System.out.println(ingredient.getNom() + " pas ajouté , quantite requise entre 1 et 8");
-        } else {
-            this.getIngredients().add(ingredient);
+            return false;
         }
+
+        this.getIngredients().add(ingredient);
+        return true;
     }
 
     public boolean cuire() {
