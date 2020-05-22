@@ -10,7 +10,7 @@ public class Pizza {
 
     private String nom;
     private List<Ingredient> ingredientList = new ArrayList<>();
-    private List<String>ingredientsBanni = new ArrayList<>();
+    private List<String> ingredientsBanni = new ArrayList<>();
     private boolean cuite = false;
 
     // Constructors
@@ -27,6 +27,11 @@ public class Pizza {
         ajoutIngBase();
     }
 
+    public Pizza(String nom , List<String> ingredientsBanni) {
+        this.nom = nom;
+        this.ingredientsBanni = ingredientsBanni;
+        ajoutIngBase();
+    }
     public Pizza(String nom) {
         this.nom = nom;
         ajoutIngBase();
@@ -39,13 +44,13 @@ public class Pizza {
         ingredientsBase.add(new Ingredient("Mozzarella", 1));
     }
     public boolean cuire(){
-        if (!this.cuite) {
+        if (this.cuite) {
             System.out.println("Cette pizza est deja cuite");
             return false;
         }
         if( this.ingredientList.size() < 3 || this.ingredientList.size() > 10 )
         {
-            System.out.println("La cuisson est raté");
+            System.out.println("La cuisson est raté " + ingredientList.size());
             return false;
         }
 

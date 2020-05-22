@@ -1,5 +1,8 @@
 package Exercices.ex07PizzaPart3;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Run {
     public static void main(String[] args) {
 
@@ -9,15 +12,17 @@ public class Run {
         Ingredient olive = new Ingredient("olive", 5);
         Ingredient concombre = new Ingredient("concombre", 5);
         Ingredient ananas = new Ingredient("ananas", 5);
-        Ingredient tomate = new Ingredient("tomate", 5);
+        Ingredient tomate = new Ingredient("tomate", 1);
         Ingredient pate = new Ingredient("pate", 1 );
 
 
-        Pizza p1 = new Pizza("p1");
+        List<String> IB = new ArrayList<>();
+        IB.add("olive");
+        Pizza p1 = new Pizza("p1", IB);
         p1.voirIng();
 
         // Attendu: pas d'ajout
-        if( p1.addIngredient(fromage) )
+        if( p1.addIngredient(olive) )
             System.out.println("ajouté");
         else
             System.out.println("non ajouté");
@@ -36,5 +41,7 @@ public class Run {
             System.out.println("non ajouté");
 
         p1.voirIng();
+
+        p1.cuire();
     }
 }
