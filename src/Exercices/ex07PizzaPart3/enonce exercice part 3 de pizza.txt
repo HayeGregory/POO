@@ -1,0 +1,14 @@
+- Liste d'ingredient banni ( liste <String> )
+
+Il sera impossible d'ajouter des ingrédients avec un nom contenu dans la banlist
+
+- Ingredient par défaut -> Liste d'ingrédient par défaut
+
+- Utiliser la variable cuite pour faire en sorte:
+
+	° qu'on ne puisse pas cuire une pizza deux fois
+	° qu'on ne puisse pas ajouter d'ingrédient sur une pizza cuite
+
+- Losqu'on ajoute un ingrédient avec le même nom, on ajoute a sa qtt.
+
+	-> attention a limite de qtt (1 <= qtt <= 8)
