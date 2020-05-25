@@ -1,22 +1,29 @@
 package Exercices.ex09Pilegeneric;
 
 public class Assiette {
-    // Attributes
-    private String assiette;
+    private String forme;
+    private float diametre;
 
-    // Getters - Setters
-    public String getAssiette() {
-        return assiette;
-    }
-    public void setAssiette(String assiette) {
-        this.assiette = assiette;
+    public String getForme() {
+        return forme;
     }
 
-    // Contructors
-    public Assiette(String assiette) {
-        this.assiette = assiette;
+    public void setForme(String forme) {
+        this.forme = forme;
     }
 
-    // Methods
-    // Override
+    public float getDiametre() {
+        return diametre;
+    }
+
+    public void setDiametre(float diametre) {
+        if (diametre >= 0) {
+            this.diametre = diametre;
+        }
+    }
+
+    public Assiette(String forme, float diametre) {
+        this.forme = forme;
+        this.diametre = diametre;
+    }
 }

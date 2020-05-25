@@ -3,56 +3,62 @@ package Exercices.ex09Pilegeneric;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Armoire implements Pile {
-    // Attributes
-    private List<Verre> verres;
-    private List<Assiette> assiettes;
+public class Armoire implements Pile<Assiette> {
 
-    // Getters - Setters
-    private List<Verre> getVerres() {
-        return verres;
-    }
-    private void setVerres(List<Verre> verres) {
-        this.verres = verres;
-    }
-    private List<Assiette> getAssiettes() {
-        return assiettes;
-    }
-    private void setAssiettes(List<Assiette> assiettes) {
-        this.assiettes = assiettes;
-    }
+    private List<Assiette> vaisselle = new ArrayList<>();
 
-    // Contructors
-    public Armoire(List<Verre> verres, List<Assiette> assiettes) {
-        this.verres = verres;
-        this.assiettes = assiettes;
+    public Armoire() { }
+
+    private List<Assiette> getVaisselle() {
+        return vaisselle;
     }
-    public Armoire() {
-        this.verres = new ArrayList<>();
-        this.assiettes = new ArrayList<>();
-    }
-
-    List<Verre> prendreVerres(int n) {
-        return null;
-    }
-
-
-    @Override
-    public void push(Object elem) {
-
+    private void setVaisselle(List<Assiette> vaisselle) {
+        this.vaisselle = vaisselle;
     }
 
     @Override
-    public Object pop() {
-        return null;
+    public Assiette peek() {
+        return vaisselle.get(this.vaisselle.size() - 1);
     }
 
     @Override
-    public Object peek() {
-        return null;
+    public Assiette pop() {
+        Assiette assiette = peek();
+        this.vaisselle.remove(assiette);
+        return assiette;
     }
 
+    @Override
+    public void push(Assiette toPush) {
+        vaisselle.add(toPush);
+    }
 
-    // Methods
+    public List<Assiette> prendreAssiettes(int nb) {
+        List<Assiette> aRecup = new ArrayList<>();
 
+        if(nb > this.vaisselle.size()) return null;
+
+        for (int i = 0; i < nb; i++) {
+            aRecup.add( pop() );
+        }
+
+        System.out.println("vous recuperez " + nb + " assiette(s)") ;
+
+        return aRecup;
+    }
+
+    public void poserAssiettes(List<Assiette> assiettesAPoser) {
+        this.vaisselle.addAll(assiettesAPoser);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder strngified = new StringBuilder("l'armoire contient " + vaisselle.size() + " assiettes.\n");
+
+        for (Assiette assiette : vaisselle) {
+            strngified.append("Assiette de forme : ").append(assiette.getForme()).append(" et diametre : ").append(assiette.getDiametre()).append("\n");
+        }
+
+        return strngified.toString();
+    }
 }

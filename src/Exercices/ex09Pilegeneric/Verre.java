@@ -1,22 +1,19 @@
 package Exercices.ex09Pilegeneric;
 
 public class Verre {
-    // Attributes
-    private String verre;
+    private float capacite;
 
-    // Getters - Setters
-    public String getVerre() {
-        return verre;
-    }
-    public void setVerre(String verre) {
-        this.verre = verre;
+    public float getCapacite() {
+        return capacite;
     }
 
-    // Contructors
-    public Verre(String verre) {
-        this.verre = verre;
+    public void setCapacite(float capacite) {
+        this.capacite = capacite;
     }
 
-    // Methods
-    // Override
+    public Verre(float capacite) {
+        if (capacite >= 0) {
+            this.capacite = capacite;
+        }
+    }
 }
