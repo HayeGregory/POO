@@ -3,7 +3,7 @@ package Exercices.ex08Musicien;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Musicien <T> {
+public class Musicien <T extends Instrument> {
     // Attributes
     private float solde;
     private List<T> instruments;
@@ -15,7 +15,9 @@ public class Musicien <T> {
     }
 
     public void setSolde(float solde) {
-        this.solde = solde;
+        if ( solde >= 0 ) {
+            this.solde = solde;
+        }
     }
 
     public List<T> getInstruments() {
@@ -31,33 +33,36 @@ public class Musicien <T> {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        if (!nom.isBlank()) {
+            this.nom = nom;
+        }
     }
 
     // Contructors
-
     public Musicien(float solde, List<T> instruments, String nom) {
         this.solde = solde;
         this.instruments = instruments;
         this.nom = nom;
     }
-
     public Musicien(float solde, String nom) {
         this(solde, new ArrayList<>(), nom);
     }
+
     // Methods
-    public void acheterInstrument (Instrument instrument) {
-        if(getSolde() - instrument.getPrix() >= 0 ) {
+    public void acheterInstrument (T instrument) {
+        if(instrument.getPrix() <= getSolde()  ) {
             setSolde(getSolde() - instrument.getPrix());
-            this.instruments.add((T) instrument);
+            this.instruments.add(instrument);
+            System.out.println("a ajouté " + instrument.getMarque() + " " + instrument.getModele());
         } else {
-            System.out.println("solde insuffisant ");
+            System.out.println(this.nom + " : solde insuffisant ");
         }
 
     }
 
-    public void joueInstrument(Instrument instrument) {
-        if (instruments.contains(instrument)) {
+    public void joueInstrument(T instrument) {
+        if (getInstruments().contains(instrument)) {
+            System.out.print(getNom() + " joue : " );
             instrument.faireDuBruit();
         } else {
             System.out.println("impossible de jouer la guitare");

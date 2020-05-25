@@ -5,5 +5,5 @@ public interface Galopant {
      int PC_MALADIE = 10;
      int PC_BLESSURE = 20;
 
-     void galoper() throws InterruptedException;
+     void galoper() throws InterruptedException ;
 }

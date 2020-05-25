@@ -11,7 +11,7 @@ public class ChauveSouris extends Animal implements Volant{
     }
     @Override
     public void setVetoDedie(Veterinaire<?> vetoDedie) {
-        this.vetoDedie = (Veterinaire<ChauveSouris>) vetoDedie  ;
+        this.vetoDedie = (Veterinaire<ChauveSouris>) vetoDedie;
     }
 
     // Contructors
@@ -33,7 +33,7 @@ public class ChauveSouris extends Animal implements Volant{
     @Override
     public void voler() throws InterruptedException {
         System.out.println(getNom() + " # vole tel une chauve-souris - 4sec #");
-        Thread.sleep(4000);
+        Thread.sleep(1000);
         this.setEtatSante(eventSante(PC_MALADIE, PC_BLESSURE));
         switch(getEtatSante()) {
             case MALADE:
