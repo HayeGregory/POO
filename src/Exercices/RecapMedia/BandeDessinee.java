@@ -1,6 +1,6 @@
 package Exercices.RecapMedia;
 
-public class BandeDessinee extends Livre implements Lisible{
+public class BandeDessinee extends Media implements Lisible{
     // Attributes
     private String nomDessinateur = "nom dessinateur defaut";
 
@@ -16,10 +16,11 @@ public class BandeDessinee extends Livre implements Lisible{
     }
 
     // Contructors
-    public BandeDessinee(String titre, String nomAuteur, float prix, int nbChapitre, String resume, String nomDessinateur) {
-        super(titre, nomAuteur, prix, nbChapitre, resume);
+    public BandeDessinee(String titre, String nomAuteur, float prix, String nomDessinateur) {
+        super(titre, nomAuteur, prix);
         setNomDessinateur(nomDessinateur);
     }
+
 
     // Methods
     // Override
@@ -33,11 +34,6 @@ public class BandeDessinee extends Livre implements Lisible{
         sb.append("Nom déssinateur : ").append(getNomDessinateur()).append("\n");
 
         return sb.toString();
-    }
-
-    @Override
-    public void raconter() {
-        System.out.println(getResume() + " + (nb chapitre  : " + getNbChapitre() + ")");
     }
 
     @Override

@@ -29,8 +29,7 @@ public class Main {
                 new ArrayList<String>(){{ add("Titre 1"); add("Titre 2"); add("Titre 3"); }} ));
         julie.acheter(new LivrePapier("Livre papier","Auteur livre papier", 75, 12,
                 "resume livre papier", 333));
-        julie.acheter(new BandeDessinee("BD","auteur BD", 50,4,
-                "resumé BD", "Dessinateur BD"));
+        julie.acheter(new BandeDessinee("BD","auteur BD", 50, "Dessinateur BD"));
 
         julie.acheter(new LivreAudio("livre trop cher", "nom livreAudiox", 100000,
                 10, "Resume audio x", "Narrateur audio x"));

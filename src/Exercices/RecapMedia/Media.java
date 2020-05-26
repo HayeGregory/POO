@@ -10,7 +10,7 @@ public abstract class Media {
     public String getTitre() {
         return titre;
     }
-    public void setTitre(String titre) {
+    private void setTitre(String titre) {
         if(!titre.isBlank()) {
             this.titre = titre;
         }
@@ -18,7 +18,7 @@ public abstract class Media {
     public String getNomAuteur() {
         return nomAuteur;
     }
-    public void setNomAuteur(String nomAuteur) {
+    private void setNomAuteur(String nomAuteur) {
         if(!nomAuteur.isBlank()) {
             this.nomAuteur = nomAuteur;
         }
@@ -26,7 +26,7 @@ public abstract class Media {
     public float getPrix() {
         return prix;
     }
-    public void setPrix(float prix) {
+    private void setPrix(float prix) {
         if (prix > 5) {
             this.prix = prix;
         }

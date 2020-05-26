@@ -18,7 +18,7 @@ public class Utilisateur {
             this.nom = nom;
         }
     }
-    private float getSolde() {
+    public float getSolde() {
         return solde;
     }
     private void setSolde(float solde) {
@@ -49,7 +49,8 @@ public class Utilisateur {
             setSolde(getSolde() - media.getPrix());
             return medias.add(media);
         }
-        System.out.println(getNom() + " ne peut acheter le media '"+ media.getTitre() + "', solde insuffisant : " + getSolde());
+        System.out.println(getNom() + " ne peut acheter le media '"+ media.getTitre() + "' (prix : " +
+               media.getPrix() + "), solde insuffisant : " + getSolde());
         return false;
     }
 
@@ -93,13 +94,13 @@ public class Utilisateur {
     }
 
     public void ecouter(Audible media) {
-        System.out.println("<< debut audition >>\n");
+        System.out.println("<< debut audition >>");
         media.ecouter();
         System.out.println("<< fin audition >>");
     }
 
     public void lire(Lisible media) {
-        System.out.println("<< debut lecture >>\n");
+        System.out.println("<< debut lecture >>");
         media.lire();
         System.out.println("<< fin lecture >>");
     }
