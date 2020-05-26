@@ -1,5 +1,4 @@
 package Exercices.ex09Pilegeneric;
 
-public interface Pile<T> {
-
+public abstract class Vaisselle {
 }

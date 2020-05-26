@@ -1,6 +1,6 @@
 package Exercices.ex09Pilegeneric;
 
-public class Verre {
+public final class Verre extends Vaisselle{
     private float capacite;
 
     public float getCapacite() {

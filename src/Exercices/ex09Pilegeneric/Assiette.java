@@ -1,6 +1,6 @@
 package Exercices.ex09Pilegeneric;
 
-public class Assiette {
+public final class Assiette extends Vaisselle{
     private String forme;
     private float diametre;
 

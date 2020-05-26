@@ -32,6 +32,11 @@ public class Agence {
         setBiens( new ArrayList<>() );
     }
 
+    public void finalize()
+    {
+        System.out.println("Objet nettoyé de la mémoire");
+    }
+
     // Methods
     public void listingBiens () {
         StringBuilder sb = new StringBuilder();
