@@ -1,4 +1,4 @@
-package Exercices.RecapMedia;
+package Exercices.RecapMediaPart3;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class Main {
         LivreAudio livreAudio = new LivreAudio("Livre audio A", "Auteur audio A", 100,
                                             10, "Resume audio A", "Narrateur audio A");
 
-        Utilisateur greg = new Utilisateur("Greg",200);
+        Utilisateur<LivreAudio> greg = new Utilisateur<>("Greg",200);
 
 //        greg.acheter(livreAudio);
 //        greg.acheter(livreAudio);
@@ -22,12 +22,11 @@ public class Main {
 
         // --
 
-        Utilisateur julie = new Utilisateur("Julie", 1000);
+        Utilisateur<LivreAudio> julie = new Utilisateur<>("Julie", 1000);
         julie.acheter(new LivreAudio("livreAudioX", "nom livreAudiox", 100,
                 10, "Resume audio x", "Narrateur audio x"));
-        julie.acheter(new Album("Album A", "Auteur album A",250,
-                new ArrayList<String>(){{ add("Titre 1"); add("Titre 2"); add("Titre 3"); }} ));
-        // {{add...}} --> Arrays.asList("Money", "The Wall", "Pigs in the sky"));
+//        julie.acheter(new Album("Album A", "Auteur album A",250,
+//                new ArrayList<String>(){{ add("Titre 1"); add("Titre 2"); add("Titre 3"); }} ));
 //        julie.acheter(new LivrePapier("Livre papier","Auteur livre papier", 75, 12,
 //                "resume livre papier", 333));
 //        julie.acheter(new BandeDessinee("BD","auteur BD", 50, "Dessinateur BD"));
@@ -38,23 +37,20 @@ public class Main {
         System.out.println(julie);
         julie.listingMedias();
 
-        for (Media media : julie.getMedias()) {
-            if (media instanceof Audible) {
-                julie.ecouter((Audible)media);
-            }
+        //julie.vendre(julie.recuperer("xxx"), greg );
+        julie.vendre(julie.recuperer("livreAudioXx"), greg );
 
+
+        System.out.println(julie);
+        System.out.println(greg);
+        greg.listingMedias();
+
+        Audible elem = (Audible) greg.recuperer("livreAudioX");
+
+        if (elem == null) {
+            System.out.println("fffffffffffffff");
         }
-
-//        julie.vendre(julie.recupererMedia(1), greg ); // trop cher pour greg
-//        julie.vendre(julie.recupererMedia(0), greg );
-//
-//
-//        System.out.println(julie);
-//        System.out.println(greg);
-//
-//        Audible elem = (Audible) greg.recupererMedia(0);
-//
-//        greg.ecouter(elem);
+        //greg.ecouter(elem);
 
     }
 }
