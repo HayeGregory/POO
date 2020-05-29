@@ -1,11 +1,14 @@
 package Exercices.RecapMediaPart3;
 
-public class Utilisateur <T extends Media> {
+import java.util.*;
+
+public class Utilisateur  {
     // Attributes
     private String nom = "user default";
     private float solde = 0;
 
-    private Bibliotheque<T> bibliotheque = new Bibliotheque<>();
+    /* une bibliotheque contient plusieurs bibliotheque de media specifique */
+    private Map<String, Bibliotheque<? extends Media>> bibliotheque = new HashMap<>();
 
     // Getters - Setters
     public String getNom() {
@@ -24,27 +27,39 @@ public class Utilisateur <T extends Media> {
             this.solde = solde;
         }
     }
-
-    public Bibliotheque<T> getBibliotheque() {
+    public Map<String, Bibliotheque<? extends Media>> getBibliotheque() {
         return bibliotheque;
     }
-    public void setBibliotheque(Bibliotheque<T> bibliotheque) {
+    private void setBibliotheque(Map<String, Bibliotheque<? extends Media>> bibliotheque) {
         this.bibliotheque = bibliotheque;
     }
 
     // Contructors
 
-    public Utilisateur (String nom, float solde) {
-        setNom(nom);
-        setSolde(solde);
-     }
-
+    public Utilisateur(String nom, float solde) {
+        this.nom = nom;
+        this.solde = solde;
+        bibliotheque.put("Albums", new Bibliotheque<Album>());
+        bibliotheque.put("Audios", new Bibliotheque<LivreAudio>());
+        bibliotheque.put("Livres", new Bibliotheque<LivrePapier>());
+        bibliotheque.put("BD", new Bibliotheque<BandeDessinee>());
+    }
 
     // Methods
-    public boolean acheter (T media) {
+    public boolean acheter (Album media) {
         if ( getSolde() >= media.getPrix()) {
             setSolde(getSolde() - media.getPrix());
-            return bibliotheque.ajouter(media);
+            return bibliotheque.get("Albums")..ajouter(media);
+        }
+        System.out.println(getNom() + " ne peut acheter le media '"+ media.getTitre() + "' (prix : " +
+                media.getPrix() + "), solde insuffisant : " + getSolde());
+        return false;
+    }
+
+    public boolean acheter (Media media) {
+        if ( getSolde() >= media.getPrix()) {
+            setSolde(getSolde() - media.getPrix());
+            return bibliotheque.get("Albums").ajouter(media);
         }
         System.out.println(getNom() + " ne peut acheter le media '"+ media.getTitre() + "' (prix : " +
                 media.getPrix() + "), solde insuffisant : " + getSolde());
@@ -52,7 +67,7 @@ public class Utilisateur <T extends Media> {
     }
 
 
-     public boolean vendre (T media) {
+    public boolean vendre (T media) {
         if (bibliotheque.recuperer(media) != null) {
             setSolde(getSolde() + media.getPrix() / 2); // 50% du prix
             return bibliotheque.retirer(media);

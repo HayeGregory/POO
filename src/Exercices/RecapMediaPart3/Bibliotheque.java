@@ -20,7 +20,7 @@ public class Bibliotheque <T extends Media> {
 
     // Methods
     public boolean ajouter(T media) {
-        return medias.add(media);
+        return medias.add((T)media);
     }
     public boolean retirer (T media) {
         if (medias.contains(media)) {
@@ -43,6 +43,7 @@ public class Bibliotheque <T extends Media> {
     public List<T> recuperer() {
         return this.getMedia();
     }
+
     // Override
 
 }
