@@ -31,13 +31,15 @@ public class BandeDessinee extends Media implements Lisible {
 
         sb.append(super.toString());
         sb.append("Informations spécifique bande dessinée :\n");
-        sb.append("Nom déssinateur : ").append(getNomDessinateur()).append("\n");
+        sb.append("Nom dessinateur : ").append(getNomDessinateur()).append("\n");
 
         return sb.toString();
     }
 
+
     @Override
     public void lire() {
-        System.out.println("lire bd");
+
+        System.out.println("lire bd : " + getTitre());
     }
 }

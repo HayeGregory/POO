@@ -35,11 +35,12 @@ public final class LivreAudio extends Livre implements Audible {
 
     @Override
     public void raconter() {
-        System.out.println(getNomNarrateur() + " narre : \n<< " + getResume() + " >>");
+        System.out.println(getNomNarrateur() + " narre : \n<< " + getResume() + " >>\n");
     }
 
     @Override
     public void ecouter() {
-        System.out.println("ecoute du livre audio");
+        raconter();
+        System.out.println("ecoute du livre audio : " + getTitre());
     }
 }

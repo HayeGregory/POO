@@ -45,6 +45,6 @@ public class Album extends Media implements Audible {
 
     @Override
     public void ecouter() {
-        System.out.println("ecoute album");
+        System.out.println("ecoute album : " + getTitre());
     }
 }

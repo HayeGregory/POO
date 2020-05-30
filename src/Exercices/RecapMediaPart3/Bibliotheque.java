@@ -5,9 +5,17 @@ import java.util.List;
 
 public class Bibliotheque <T extends Media> {
     // Attributes
+    private TypeMedia typeMedia;
     private List<T> medias = new ArrayList<>();
 
     // Getters - Setters
+    public TypeMedia getTypeMedia() {
+        return typeMedia;
+    }
+    private void setTypeMedia(TypeMedia typeMedia) {
+        this.typeMedia = typeMedia;
+    }
+    // -
     private List<T> getMedia() {
         return medias;
     }
@@ -16,11 +24,13 @@ public class Bibliotheque <T extends Media> {
     }
 
     // Contructors
-        // default constructor
+    public Bibliotheque(TypeMedia typeMedia) {
+        this.typeMedia = typeMedia;
+    }
 
     // Methods
     public boolean ajouter(T media) {
-        return medias.add((T)media);
+        return medias.add(media);
     }
     public boolean retirer (T media) {
         if (medias.contains(media)) {
@@ -43,6 +53,7 @@ public class Bibliotheque <T extends Media> {
     public List<T> recuperer() {
         return this.getMedia();
     }
+
 
     // Override
 

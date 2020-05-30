@@ -36,11 +36,12 @@ public final class LivrePapier extends Livre implements Lisible {
 
     @Override
     public void raconter() {
-        System.out.println(getResume() + " + (nb page : " + getNbPage() + ")");
+        System.out.println(getResume() + " + (nb page : " + getNbPage() + ")\n");
     }
 
     @Override
     public void lire() {
-        System.out.println("lire le livre papier");
+        raconter();
+        System.out.println("lire le livre papier : " + getTitre());
     }
 }

@@ -12,5 +12,7 @@ public class Main {
         idefix.aboyer();
         greg.caresser(idefix);
 
+        System.out.println(greg.getClass().getSimpleName());
+
     }
 }
